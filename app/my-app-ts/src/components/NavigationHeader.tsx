@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { signOut } from "firebase/auth";
 import { fireAuth } from "./firebase";
+import { Login } from './Login';
 
 export const NavigationHeader: React.FC = () => {
     
-    const logout = async() => {
+    const Logout = async() => {
         signOut(fireAuth).then(() => {
         window.location.href = '/';    
         alert("ログアウトしました");
@@ -17,15 +18,14 @@ export const NavigationHeader: React.FC = () => {
 
   return (
     <header className="PageHeader_header">
-      <h1 className="PageHeader_title">Todoアプリ</h1>
+      <h1 className="PageHeader_title">knowledge baseにようこそ!</h1>
       <nav>
         <ul className="PageHeader_nav">
           <li>
-            <Link to="/login">ログイン</Link>
+          <button type="button" onClick={Login}>ログイン</button>
           </li>
-          <li>テストユーザさん</li>
           <li>
-            <button type="button" onClick={logout}>ログアウト</button>
+            <button type="button" onClick={Logout}>ログアウト</button>
           </li>
         </ul>
       </nav>
