@@ -16,7 +16,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavigationHeader />
       <Routes>
         <Route  path="/knowledge" element={loginUser ? <Contents /> : null} >
         </Route>
