@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import ChackboxContainer from './components/ChackboxContainer';
-import Contents from './components/Contents';
+import ChackboxContainer from './ChackboxContainer';
 
 const KnowledgePostForm  = () => {
 
@@ -50,7 +49,6 @@ const KnowledgePostForm  = () => {
         alert("少なくとも1つのカリキュラムの章を選択してください");
         return;
       }
-
     try {
       const result = await fetch("http://localhost:8050/knowledge", {
         method: "POST",
@@ -69,12 +67,12 @@ const KnowledgePostForm  = () => {
       setURL("");
       setSelectedCategories([]); 
       setSelectedCurriculum([]);
-      Contents
 
-  } catch (err) {
-    console.error(err);
-  }
-
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  
     return (
         <form onSubmit={handleSubmit}> 
         <h2>情報追加フォーム</h2>
@@ -96,7 +94,6 @@ const KnowledgePostForm  = () => {
         </form>
 
     ); 
-  };
 };
 
 export default KnowledgePostForm;

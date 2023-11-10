@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { UUID } from 'crypto';
+import KnowledgePostForm from './KnowledgePostForm'
 interface Knowledge {
   id: UUID;
   name: string; 
@@ -76,6 +77,7 @@ function Contents() {
           <li>Loading...</li>
         )}
       </ul>
+      <KnowledgePostForm />
       </div>
     );
   }
