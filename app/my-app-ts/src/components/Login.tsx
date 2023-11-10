@@ -26,8 +26,11 @@ export const Login= () => {
         signInWithEmailAndPassword(fireAuth, email, password)
     .then((userCredential) => {
         const user = userCredential.user;
-        alert("ようこそ: " + user.displayName + "さん");
+        alert("ようこそ: " + name + "さん");
         navigate('/knowledge');
+        setName(""); 
+        setEmail("");
+        setPassword("");
 
     })
     .catch((error) => {
