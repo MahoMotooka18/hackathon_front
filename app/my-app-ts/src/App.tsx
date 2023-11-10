@@ -17,7 +17,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route  path="/knowledge" element={loginUser ? <Contents /> : null} >
+        <Route  path="/knowledge" element={<Contents />} >
         </Route>
         <Route  path="/signup" element={<Signup />} >
         </Route>
