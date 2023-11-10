@@ -1,5 +1,4 @@
 import React from 'react';
-import './NavigationHeader.css';
 import { Link } from 'react-router-dom';
 import { signOut } from "firebase/auth";
 import { fireAuth } from "./firebase";

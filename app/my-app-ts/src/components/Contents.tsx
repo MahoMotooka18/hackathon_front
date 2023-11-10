@@ -1,8 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { onAuthStateChanged } from "firebase/auth";
-import { fireAuth } from "./firebase";
 import { useEffect, useState } from 'react';
 import { UUID } from 'crypto';
 interface Knowledge {
