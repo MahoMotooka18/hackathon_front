@@ -1,11 +1,15 @@
 import { useState } from 'react';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { fireAuth } from "./components/firebase";
+import {  signInWithEmailAndPassword } from "firebase/auth";
+import { fireAuth } from "./firebase";
+import { useNavigate } from 'react-router-dom';
 
-export const LoginForm= () => {
+
+export const Login= () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+
 
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setName(e.target.value);
@@ -17,33 +21,14 @@ export const LoginForm= () => {
         setPassword(e.target.value);
       };
 
- /**
-   * サインアップする
-   */
-
-    const SignUp = () => {
-        createUserWithEmailAndPassword(fireAuth, email, password)
-    .then((userCredential) => {
-        const user = userCredential.user;
-        alert("新しいユーザーが作成されました: " + user.displayName +"さん");
-        setEmail(""); 
-        setPassword("");
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        });
-    }
-
- /**
-   * サインインする
-   */
 
     const SignIn = () => {
         signInWithEmailAndPassword(fireAuth, email, password)
     .then((userCredential) => {
         const user = userCredential.user;
         alert("ようこそ: " + user.displayName + "さん");
+        navigate('/knowledge');
+
     })
     .catch((error) => {
         const errorCode = error.code;
@@ -51,17 +36,6 @@ export const LoginForm= () => {
         });
     }
 
-  /**
-   * ログアウトする
-   */
-    const signOutWithEmailandPassword = () => {
-        signOut(fireAuth).then(() => {
-        alert("ログアウトしました");
-        })
-        .catch((error) => {
-            alert(error.message);
-        });
-    };
 
     return (
       <div>
@@ -75,16 +49,10 @@ export const LoginForm= () => {
           <input type="password" id="password" placeholder="パスワード" value={password} onChange={handlePasswordChange} />
         </div>
         <div>
-          <button onClick={SignUp}>新規登録</button>
-        </div>
-        <div>
           <button onClick={SignIn}>ログイン</button>
-        </div>
-        <div>
-          <button onClick={signOutWithEmailandPassword}>ログアウト</button>
         </div>
       </div>
     );
 };
 
-export default LoginForm;
+export default Login;
