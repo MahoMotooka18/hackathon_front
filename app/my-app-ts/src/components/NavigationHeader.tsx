@@ -18,12 +18,9 @@ export const NavigationHeader: React.FC = () => {
 
   return (
     <header className="PageHeader_header">
-      <h1 className="PageHeader_title">knowledge baseにようこそ!</h1>
+      <h1 className="PageHeader_title">ログアウトはこちらから</h1>
       <nav>
         <ul className="PageHeader_nav">
-          <li>
-          <button type="button" onClick={Login}>ログイン</button>
-          </li>
           <li>
             <button type="button" onClick={Logout}>ログアウト</button>
           </li>
