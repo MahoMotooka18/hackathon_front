@@ -28,7 +28,7 @@ export const Signup= () => {
         createUserWithEmailAndPassword(fireAuth, email, password)
     .then((userCredential) => {
         const user = userCredential.user;
-        alert("新しいユーザーが作成されました: " + user.displayName +"さん");
+        alert("新しいユーザーが作成されました: " + name +"さん");
         setEmail(""); 
         setPassword("");
         navigate('/');

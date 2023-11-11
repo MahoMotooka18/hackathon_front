@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
-import { fireAuth } from "./components/firebase";
-import { Home } from './components/Home';
-import { Signup } from './components/Signup';
-import { Login } from './components/Login';
-import { NavigationHeader  } from './components/NavigationHeader';
-import Contents from './components/Contents'; 
+import { fireAuth } from "./component/firebase";
+import { Home } from './component/Home';
+import { Signup } from './component/Signup';
+import { Login } from './component/Login';
+import { NavigationHeader  } from './component/NavigationHeader';
+import Contents from './component/Contents'; 
+import logo from './logo.svg';
+import './App.css';
+import KnowledgePostForm from './component/KnowledgePostForm';
 
 function App() {
     const [loginUser, setLoginUser] = useState(fireAuth.currentUser);
@@ -15,9 +18,14 @@ function App() {
     });
 
   return (
+    <div className="App">
+    <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
     <BrowserRouter>
       <Routes>
         <Route  path="/knowledge" element={<Contents />} >
+        </Route>
+        <Route  path="/knowledgepost" element={<KnowledgePostForm />} >
         </Route>
         <Route  path="/signup" element={<Signup />} >
         </Route>
@@ -28,6 +36,8 @@ function App() {
       </Routes>
       <NavigationHeader />
     </BrowserRouter>
+    </header>
+    </div>
   );
 }
 

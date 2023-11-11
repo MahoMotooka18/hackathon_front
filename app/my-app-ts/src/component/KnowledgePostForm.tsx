@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ChackboxContainer from './ChackboxContainer';
+import CheckboxContainer from './CheckboxContainer';
 
 const KnowledgePostForm  = () => {
 
@@ -78,19 +78,21 @@ const KnowledgePostForm  = () => {
   
     return (
         <form onSubmit={handleSubmit}> 
-        <h2>情報追加フォーム</h2>
+        <h1>情報追加フォーム</h1>
         <div>
-          <input type="text" id="name" placeholder="名前" value={name} onChange={handleNameChange} />
+          <input type="text" id="name" placeholder="名前" value={name} onChange={handleNameChange} style={{ width: '30%', padding: '3px' }}/>
         </div>
         <div>
-          <input type="url" id="url" placeholder="URL(技術本は書籍紹介ページ等のURLを記載)" value={url} onChange={handleURLChange} />
+          <input type="url" id="url" placeholder="URL(技術本は書籍紹介ページ等のURLを記載)" value={url} onChange={handleURLChange} style={{ width: '50%', padding: '3px' }}/>
         </div>
         <div>
-        <ChackboxContainer name="カテゴリ" value={category_checkList} selectedValues={selectedCategories} 
+        <h3>カテゴリ</h3>  
+        <CheckboxContainer name="カテゴリ" value={category_checkList} selectedValues={selectedCategories} 
         onChange={(selected) => setSelectedCategories(selected)}/>
         </div>
-        <div>
-        <ChackboxContainer name="該当するカリキュラムの章" value={curriculum_checkList} 
+        <h3>該当するカリキュラムの章</h3> 
+        <div style={{ display: 'flex', flexDirection: 'column',flexWrap: 'wrap', maxHeight: '50px' }}>
+        <CheckboxContainer name="該当するカリキュラムの章" value={curriculum_checkList} 
         selectedValues={selectedCurriculum} onChange={(selected) => setSelectedCurriculum(selected)}/>
         </div>
         <button type={"submit"}>追加</button>

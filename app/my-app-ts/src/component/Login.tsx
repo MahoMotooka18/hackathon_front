@@ -10,10 +10,10 @@ export const Login= () => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       setName(e.target.value);
     };
+
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
       };
@@ -28,7 +28,6 @@ export const Login= () => {
         const user = userCredential.user;
         alert("ようこそ: " + name + "さん");
         navigate('/knowledge');
-        setName(""); 
         setEmail("");
         setPassword("");
 

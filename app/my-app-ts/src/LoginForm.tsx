@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { fireAuth } from "./components/firebase";
+import { fireAuth } from "./component/firebase";
 
 export const LoginForm= () => {
     const [name, setName] = useState("");
