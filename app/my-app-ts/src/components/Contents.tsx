@@ -16,7 +16,7 @@ function Contents() {
   const [sortBy, setSortBy] = useState('date');
   const fetchKnowledge = async () => {
       try {
-          const res = await fetch("http://localhost:8050/users");
+          const res = await fetch("http://localhost:8050/knowledge");
           if (!res.ok) {
               throw Error(`情報の取得に失敗しました: ${res.status}`);
             }
@@ -24,6 +24,7 @@ function Contents() {
             setKnowledge(knowledge);
           } catch (err) {
             console.error(err);
+            console.log("knowledgeのsetに失敗");
           }
         };
 
@@ -55,6 +56,7 @@ function Contents() {
             checked={sortBy === 'date'}
             onChange={() => setSortBy('date')}
           />
+          追加日別でソート
         </label>
         <label>
           <input
