@@ -52,11 +52,14 @@ const KnowledgePostForm  = () => {
     try {
       const result = await fetch("http://localhost:8050/knowledge", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           name: name,
           url: url,
-          catetory: selectedCategories,
-          curriculum:  selectedCurriculum
+          category: selectedCategories,
+          curriculum: selectedCurriculum,
         }),
       });
       if (!result.ok) {
