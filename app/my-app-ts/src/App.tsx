@@ -23,9 +23,9 @@ function App() {
       <img src={logo} className="App-logo" alt="logo" />
     <BrowserRouter>
       <Routes>
-        <Route  path="/knowledge" element={<Contents />} >
+        <Route  path="/knowledge" element={loginUser ? <Contents /> : null}  >
         </Route>
-        <Route  path="/knowledgepost" element={<KnowledgePostForm />} >
+        <Route  path="/knowledgepost" element={loginUser ? <KnowledgePostForm /> : null} >
         </Route>
         <Route  path="/signup" element={<Signup />} >
         </Route>
